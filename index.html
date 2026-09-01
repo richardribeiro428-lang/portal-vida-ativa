@@ -84,7 +84,7 @@
             background: #cbd5e1;
         }
 
-        /* Barra de Pesquisa Gemini com Área de Resposta */
+        /* Barra de Pesquisa Gemini Inteligente */
         .gemini-search-box {
             background: #f0f4f8;
             border: 2px solid #cbd5e1;
@@ -132,16 +132,17 @@
             background: #1557b0;
         }
 
-        /* Aba de Resposta do Assistente Gemini */
+        /* Aba de Resposta Dinâmica da IA */
         .gemini-response-area {
             background: #ffffff;
             border-left: 5px solid #1d6fd8;
-            padding: 15px 20px;
+            padding: 20px;
             border-radius: 8px;
-            font-size: 17px;
-            color: #334155;
-            display: none; /* Fica oculto até o usuário pesquisar */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 18px;
+            color: #1e293b;
+            display: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            line-height: 1.5;
         }
 
         /* Seção de Acesso Rápido */
@@ -184,7 +185,6 @@
             line-height: 1.4;
         }
 
-        /* Caixa temporária para exibir os links informados */
         .card-link-preview {
             background: rgba(255, 255, 255, 0.2);
             padding: 8px 12px;
@@ -212,7 +212,7 @@
             background: #f1f5f9;
         }
 
-        /* Seção de Telefones de Emergência */
+        /* Telefones de Emergência */
         .emergency-section {
             background: #fff5f5;
             border: 2px solid #feb2b2;
@@ -249,7 +249,7 @@
             margin-left: 5px;
         }
 
-        /* Rodapé com Desenho Animado Grande ao Lado */
+        /* Rodapé */
         footer {
             display: flex;
             justify-content: space-between;
@@ -276,7 +276,6 @@
             text-decoration: underline;
         }
 
-        /* Estilo do Desenho Animado Grande dos Idosos */
         .cartoon-mascot-large {
             display: flex;
             align-items: center;
@@ -306,6 +305,7 @@
 <body>
 
     <div class="container">
+        <!-- Cabeçalho -->
         <header>
             <div class="logo-area">
                 <span style="font-size: 36px;">💙</span>
@@ -321,15 +321,17 @@
             </div>
         </header>
 
+        <!-- Barra de Busca Assistente Gemini Inteligente -->
         <div class="gemini-search-box">
             <h2>✨ Olá! Sou seu Assistente Gemini. O que você gostaria de saber hoje?</h2>
             <div class="search-input-wrapper">
-                <input type="text" id="perguntaGemini" placeholder="Ex: Como agendar consulta no posto de saúde?">
-                <button onclick="enviarPesquisa()">Perguntar</button>
+                <input type="text" id="perguntaGemini" placeholder="Ex: Qual seu nome? Como pagar o IPTU? Preciso de médico..." onkeypress="verificarEnter(event)">
+                <button onclick="perguntarGemini()">Perguntar</button>
             </div>
             <div id="respostaGemini" class="gemini-response-area"></div>
         </div>
 
+        <!-- Seção de Acesso Rápido -->
         <div class="section-title">Minha Cidade: Acesso Rápido</div>
         <div class="quick-access-grid">
             
@@ -368,6 +370,7 @@
 
         </div>
 
+        <!-- Telefones de Emergência -->
         <div class="emergency-section">
             <h3>🚨 Telefones de Emergência Úteis</h3>
             <div class="emergency-grid">
@@ -378,6 +381,7 @@
             </div>
         </div>
 
+        <!-- Rodapé -->
         <footer>
             <div class="footer-links">
                 <a href="#">Sobre Nós</a>
@@ -396,6 +400,7 @@
         </footer>
     </div>
 
+    <!-- Script de Inteligência Contextual Ajustada para Idosos -->
     <script>
         let tamanhoAtual = 18;
 
@@ -406,16 +411,53 @@
             document.body.style.fontSize = tamanhoAtual + 'px';
         }
 
-        function enviarPesquisa() {
-            const pergunta = document.getElementById('perguntaGemini').value;
-            const areaResposta = document.getElementById('respostaGemini');
-
-            if(pergunta.trim() !== "") {
-                areaResposta.style.display = "block";
-                areaResposta.innerHTML = `<strong>Gemini responde:</strong> Entendi sua dúvida sobre "<em>${pergunta}</em>". Para idosos, recomendo verificar no posto de saúde mais próximo ou ligar na central de atendimento municipal para obter suporte direto.`;
-            } else {
-                alert("Por favor, digite o que você está procurando.");
+        function verificarEnter(e) {
+            if (e.key === 'Enter') {
+                perguntarGemini();
             }
+        }
+
+        function perguntarGemini() {
+            const input = document.getElementById('perguntaGemini');
+            const areaResposta = document.getElementById('respostaGemini');
+            const texto = input.value.trim().toLowerCase();
+
+            if (texto === "") {
+                alert("Por favor, digite alguma dúvida na caixa de pesquisa.");
+                return;
+            }
+
+            areaResposta.style.display = "block";
+            areaResposta.innerHTML = "<em>Pesquisando com carinho para você... ⏳</em>";
+
+            setTimeout(() => {
+                let resposta = "";
+
+                // Inteligência condicional para simular respostas coerentes e úteis
+                if (texto.includes("nome") || texto.includes("quem é você")) {
+                    resposta = "🤖 Sou o <strong>Assistente Gemini</strong>, seu assistente virtual criado para ajudar você a navegar pelo portal, encontrar serviços públicos e tirar dúvidas do dia a dia com facilidade!";
+                } 
+                else if (texto.includes("saúde")  || texto.includes("hospital") || texto.includes("médico") || texto.includes("consulta")) {
+                    resposta = "🏥 Para assuntos de <strong>saúde</strong>, você pode clicar no botão azul 'Acessar Saúde' logo acima para ver os postos e hospitais. Se for uma urgência médica imediata, ligue agora mesmo para o <strong>SAMU no número 192</strong>.";
+                } 
+                else if (texto.includes("iptu") || texto.includes("imposto") || texto.includes("casa") || texto.includes("pagar")) {
+                    resposta = "🏠 Para verificar o <strong>IPTU</strong> ou contas da casa, utilize o cartão laranja 'IPTU e Finanças' nesta mesma página ou acesse o site oficial da prefeitura da sua cidade.";
+                } 
+                else if (texto.includes("notícia") || texto.includes("acontecendo") || texto.includes("jornal")) {
+                    resposta = "📰 As principais novidades e avisos da sua região estão disponíveis no cartão verde 'Notícias da Cidade' logo acima.";
+                } 
+                else if (texto.includes("socorro") || texto.includes("emergência") || texto.includes("polícia") || texto.includes("bombeiro") || texto.includes("ajuda")) {
+                    resposta = "🚨 Se você precisa de ajuda urgente, utilize os telefones de emergência listados na parte inferior da página: <strong>SAMU (192)</strong>, <strong>Bombeiros (193)</strong> ou <strong>Polícia Militar (190)</strong>.";
+                } 
+                else if (texto.includes("olá") || texto.includes("bom dia") || texto.includes("boa tarde") || texto.includes("boa noite")) {
+                    resposta = "👋 Olá! Que alegria ter você por aqui. Como posso ajudar o senhor ou a senhora hoje?";
+                } 
+                else {
+                    resposta = `💡 Sobre o assunto "<em>${input.value}</em>", recomendo navegar pelas opções de Acesso Rápido na página ou consultar os números de atendimento da prefeitura local. Estou sempre por aqui para o que precisar!`;
+                }
+
+                areaResposta.innerHTML = resposta;
+            }, 500);
         }
     </script>
 </body>
