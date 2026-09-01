@@ -84,7 +84,55 @@
             background: #cbd5e1;
         }
 
-        /* Barra de Pesquisa Gemini Inteligente */
+        /* Seção do Boneco Apresentando o Site */
+        .intro-assistant {
+            display: flex;
+            align-items: center;
+            background: #eff6ff;
+            border: 2px solid #bfdbfe;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .assistant-avatar {
+            font-size: 55px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .assistant-speech h3 {
+            color: #1e40af;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .assistant-speech p {
+            font-size: 16px;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .speech-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .speech-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Barra de Pesquisa Gemini com Microfone */
         .gemini-search-box {
             background: #f0f4f8;
             border: 2px solid #cbd5e1;
@@ -107,6 +155,7 @@
             overflow: hidden;
             padding: 5px;
             margin-bottom: 15px;
+            align-items: center;
         }
 
         .search-input-wrapper input {
@@ -117,22 +166,49 @@
             outline: none;
         }
 
-        .search-input-wrapper button {
+        /* Botão do Microfone */
+        .mic-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 12px 18px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-right: 5px;
+            transition: background 0.2s;
+        }
+
+        .mic-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .mic-btn.escutando {
+            background: #fee2e2;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .search-input-wrapper button.search-submit {
             background: #1d6fd8;
             color: white;
             border: none;
-            padding: 0 25px;
+            padding: 15px 25px;
             font-size: 18px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
         }
 
-        .search-input-wrapper button:hover {
+        .search-input-wrapper button.search-submit:hover {
             background: #1557b0;
         }
 
-        /* Aba de Resposta Dinâmica da IA */
+        /* Aba de Resposta Dinâmica com Opção de Ouvir (Fone) */
         .gemini-response-area {
             background: #ffffff;
             border-left: 5px solid #1d6fd8;
@@ -143,6 +219,26 @@
             display: none;
             box-shadow: 0 3px 10px rgba(0,0,0,0.06);
             line-height: 1.5;
+            position: relative;
+        }
+
+        .read-aloud-btn {
+            background: #e0f2fe;
+            color: #0369a1;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+        }
+
+        .read-aloud-btn:hover {
+            background: #bae6fd;
         }
 
         /* Seção de Acesso Rápido */
@@ -185,13 +281,28 @@
             line-height: 1.4;
         }
 
-        .card-link-preview {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
+        /* Espaço para você colar o link e descrição provisoriamente */
+        .admin-link-input-area {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 8px;
             margin-bottom: 15px;
-            word-break: break-all;
+            font-size: 14px;
+        }
+
+        .admin-link-input-area label {
+            display: block;
+            margin-bottom: 3px;
+            font-weight: bold;
+        }
+
+        .admin-link-input-area input {
+            width: 100%;
+            padding: 6px;
+            border-radius: 4px;
+            border: none;
+            font-size: 14px;
+            outline: none;
         }
 
         .card-btn {
@@ -212,7 +323,7 @@
             background: #f1f5f9;
         }
 
-        /* Telefones de Emergência */
+        /* Telefones de Emergência Clicáveis */
         .emergency-section {
             background: #fff5f5;
             border: 2px solid #feb2b2;
@@ -229,7 +340,7 @@
 
         .emergency-grid {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
@@ -241,6 +352,14 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             font-size: 18px;
             color: #2d3748;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid #fed7d7;
+            transition: background 0.2s;
+        }
+
+        .emergency-item:hover {
+            background: #fff1f1;
         }
 
         .emergency-item span {
@@ -321,63 +440,86 @@
             </div>
         </header>
 
-        <!-- Barra de Busca Assistente Gemini Inteligente -->
+        <!-- Boneco/Assistente de Boas-Vindas Explicando o Sistema de Voz -->
+        <div class="intro-assistant">
+            <div class="assistant-avatar">👴💬</div>
+            <div class="assistant-speech">
+                <h3>Olá! Seja muito bem-vindo ao seu portal!</h3>
+                <p id="textoBoasVindas">Sou seu guia. Se preferir não digitar, basta clicar no desenho do microfone na barra de pesquisa abaixo e falar o que procura. Quando eu responder, clique no botão de fone de ouvido para ouvir tudo o que eu disser!</p>
+                <button class="speech-btn" onclick="ouvirBoasVindas()">🔊 Ouvir Boas-Vindas</button>
+            </div>
+        </div>
+
+        <!-- Barra de Busca Assistente Gemini com Microfone -->
         <div class="gemini-search-box">
-            <h2>✨ Olá! Sou seu Assistente Gemini. O que você gostaria de saber hoje?</h2>
+            <h2>✨ Assistente Gemini: O que você gostaria de saber hoje?</h2>
             <div class="search-input-wrapper">
-                <input type="text" id="perguntaGemini" placeholder="Ex: Qual seu nome? Como pagar o IPTU? Preciso de médico..." onkeypress="verificarEnter(event)">
-                <button onclick="perguntarGemini()">Perguntar</button>
+                <input type="text" id="perguntaGemini" placeholder="Escreva aqui ou clique no microfone ao lado para falar..." onkeypress="verificarEnter(event)">
+                <button class="mic-btn" id="btnMic" onclick="ativarMicrofone()" title="Falar por voz">🎤</button>
+                <button class="search-submit" onclick="perguntarGemini()">Perguntar</button>
             </div>
             <div id="respostaGemini" class="gemini-response-area"></div>
         </div>
 
-        <!-- Seção de Acesso Rápido -->
+        <!-- Seção de Acesso Rápido (Com campos para você inserir os links provisoriamente) -->
         <div class="section-title">Minha Cidade: Acesso Rápido</div>
         <div class="quick-access-grid">
             
+            <!-- Card Hospitais -->
             <div class="card hospital">
                 <div>
                     <h3>Hospitais e Saúde</h3>
                     <p>Agende consultas, veja farmácias de plantão e postos de atendimento próximos.</p>
-                    <div class="card-link-preview">
-                        <strong>Link:</strong> <a href="https://www.gov.br/saude" target="_blank" style="color: white;">Portal do Ministério da Saúde / SUS</a>
+                    
+                    <!-- Campo temporário para você colar o link do site -->
+                    <div class="admin-link-input-area">
+                        <label>Cole o Link do Hospital/Saúde aqui:</label>
+                        <input type="text" id="linkHospital" placeholder="Ex: https://exemplo.com/saude" oninput="atualizarLink('hospital')">
                     </div>
                 </div>
-                <a href="https://www.gov.br/saude" target="_blank" class="card-btn">Acessar Saúde</a>
+                <a href="#" id="btnHospitalLink" target="_blank" class="card-btn">Acessar Saúde</a>
             </div>
 
+            <!-- Card IPTU -->
             <div class="card iptu">
                 <div>
                     <h3>IPTU e Finanças</h3>
                     <p>Consulte débitos, emite a segunda via do carnê de sua casa com facilidade.</p>
-                    <div class="card-link-preview">
-                        <strong>Link:</strong> <span style="color: white;">Prefeitura Municipal (Consulta de Tributos)</span>
+                    
+                    <!-- Campo temporário para você colar o link do site -->
+                    <div class="admin-link-input-area">
+                        <label>Cole o Link do IPTU aqui:</label>
+                        <input type="text" id="linkIptu" placeholder="Ex: https://exemplo.com/iptu" oninput="atualizarLink('iptu')">
                     </div>
                 </div>
-                <a href="#" target="_blank" class="card-btn">Ver IPTU e Contas</a>
+                <a href="#" id="btnIptuLink" target="_blank" class="card-btn">Ver IPTU e Contas</a>
             </div>
 
+            <!-- Card Notícias -->
             <div class="card noticias">
                 <div>
                     <h3>Notícias da Cidade</h3>
                     <p>Fique por dentro do que acontece na sua região, avisos e campanhas de vacinação.</p>
-                    <div class="card-link-preview">
-                        <strong>Link:</strong> <span style="color: white;">Portal de Notícias Local / G1</span>
+                    
+                    <!-- Campo temporário para você colar o link do site -->
+                    <div class="admin-link-input-area">
+                        <label>Cole o Link de Notícias aqui:</label>
+                        <input type="text" id="linkNoticias" placeholder="Ex: https://exemplo.com/noticias" oninput="atualizarLink('noticias')">
                     </div>
                 </div>
-                <a href="#" target="_blank" class="card-btn">Ler Notícias</a>
+                <a href="#" id="btnNoticiasLink" target="_blank" class="card-btn">Ler Notícias</a>
             </div>
 
         </div>
 
-        <!-- Telefones de Emergência -->
+        <!-- Telefones de Emergência com Abertura Direta para Discagem -->
         <div class="emergency-section">
-            <h3>🚨 Telefones de Emergência Úteis</h3>
+            <h3>🚨 Telefones de Emergência Úteis (Clique para ligar direto)</h3>
             <div class="emergency-grid">
-                <div class="emergency-item">SAMU: <span>192</span></div>
-                <div class="emergency-item">Bombeiros: <span>193</span></div>
-                <div class="emergency-item">Polícia Militar: <span>190</span></div>
-                <div class="emergency-item">Farmácia Popular: <span>0800 61 1997</span></div>
+                <a href="tel:192" class="emergency-item">SAMU: <span>192</span> 📞</a>
+                <a href="tel:193" class="emergency-item">Bombeiros: <span>193</span> 📞</a>
+                <a href="tel:190" class="emergency-item">Polícia Militar: <span>190</span> 📞</a>
+                <a href="tel:0800611997" class="emergency-item">Farmácia Popular: <span>0800 61 1997</span> 📞</a>
             </div>
         </div>
 
@@ -400,7 +542,7 @@
         </footer>
     </div>
 
-    <!-- Script de Inteligência Contextual Ajustada para Idosos -->
+    <!-- Script de Interação, Microfone, Voz e Links -->
     <script>
         let tamanhoAtual = 18;
 
@@ -411,53 +553,132 @@
             document.body.style.fontSize = tamanhoAtual + 'px';
         }
 
+        // Função para atualizar os botões dos cards com os links que você colar
+        function atualizarLink(tipo) {
+            if (tipo === 'hospital') {
+                let url = document.getElementById('linkHospital').value;
+                document.getElementById('btnHospitalLink').href = url ? url : '#';
+            } else if (tipo === 'iptu') {
+                let url = document.getElementById('linkIptu').value;
+                document.getElementById('btnIptuLink').href = url ? url : '#';
+            } else if (tipo === 'noticias') {
+                let url = document.getElementById('linkNoticias').value;
+                document.getElementById('btnNoticiasLink').href = url ? url : '#';
+            }
+        }
+
+        // Sistema de Síntese de Voz (Ouvir texto)
+        function falarTexto(textoParaFalar) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Para qualquer fala anterior
+                let mensagem = new SpeechSynthesisUtterance(textoParaFalar);
+                mensagem.lang = 'pt-BR';
+                mensagem.rate = 0.95; // Velocidade levemente mais lenta ideal para idosos
+                window.speechSynthesis.speak(mensagem);
+            } else {
+                alert("Seu navegador não suporta a leitura por voz.");
+            }
+        }
+
+        function ouvirBoasVindas() {
+            let texto = document.getElementById('textoBoasVindas').innerText;
+            falarTexto(texto);
+        }
+
+        // Sistema de Reconhecimento de Voz (Falar pelo microfone)
+        function ativarMicrofone() {
+            const btnMic = document.getElementById('btnMic');
+            const input = document.getElementById('perguntaGemini');
+
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert("Seu navegador não suporta reconhecimento de voz. Tente usar o Google Chrome.");
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            
+            recognition.lang = 'pt-BR';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            recognition.onstart = function() {
+                btnMic.classList.add('escutando');
+                input.placeholder = "Ouvindo... Pode falar!";
+            };
+
+            recognition.onresult = function(event) {
+                const speechResult = event.results[0][0].transcript;
+                input.value = speechResult;
+                btnMic.classList.remove('escutando');
+                input.placeholder = "Escreva aqui ou clique no microfone ao lado para falar...";
+                perguntarGemini(); // Pesquisa automaticamente após falar
+            };
+
+            recognition.onerror = function(event) {
+                btnMic.classList.remove('escutando');
+                input.placeholder = "Escreva aqui ou clique no microfone ao lado para falar...";
+                alert("Não conseguimos ouvir direito. Tente novamente.");
+            };
+
+            recognition.onend = function() {
+                btnMic.classList.remove('escutando');
+                input.placeholder = "Escreva aqui ou clique no microfone ao lado para falar...";
+            };
+
+            recognition.start();
+        }
+
         function verificarEnter(e) {
             if (e.key === 'Enter') {
                 perguntarGemini();
             }
         }
 
+        // Inteligência do Gemini Adaptada
         function perguntarGemini() {
             const input = document.getElementById('perguntaGemini');
             const areaResposta = document.getElementById('respostaGemini');
             const texto = input.value.trim().toLowerCase();
 
             if (texto === "") {
-                alert("Por favor, digite alguma dúvida na caixa de pesquisa.");
+                alert("Por favor, digite ou fale alguma dúvida.");
                 return;
             }
 
             areaResposta.style.display = "block";
-            areaResposta.innerHTML = "<em>Pesquisando com carinho para você... ⏳</em>";
+            areaResposta.innerHTML = "<em>Procurando resposta com carinho... ⏳</em>";
 
             setTimeout(() => {
                 let resposta = "";
 
-                // Inteligência condicional para simular respostas coerentes e úteis
                 if (texto.includes("nome") || texto.includes("quem é você")) {
-                    resposta = "🤖 Sou o <strong>Assistente Gemini</strong>, seu assistente virtual criado para ajudar você a navegar pelo portal, encontrar serviços públicos e tirar dúvidas do dia a dia com facilidade!";
+                    resposta = "🤖 Sou o <strong>Assistente Gemini</strong>, seu assistente virtual criado para ajudar você a navegar com facilidade pelo portal!";
                 } 
                 else if (texto.includes("saúde")  || texto.includes("hospital") || texto.includes("médico") || texto.includes("consulta")) {
-                    resposta = "🏥 Para assuntos de <strong>saúde</strong>, você pode clicar no botão azul 'Acessar Saúde' logo acima para ver os postos e hospitais. Se for uma urgência médica imediata, ligue agora mesmo para o <strong>SAMU no número 192</strong>.";
+                    resposta = "🏥 Para assuntos de <strong>saúde</strong>, clique no botão azul 'Acessar Saúde' nos cards acima. Se for urgência, ligue direto para o SAMU no 192.";
                 } 
-                else if (texto.includes("iptu") || texto.includes("imposto") || texto.includes("casa") || texto.includes("pagar")) {
-                    resposta = "🏠 Para verificar o <strong>IPTU</strong> ou contas da casa, utilize o cartão laranja 'IPTU e Finanças' nesta mesma página ou acesse o site oficial da prefeitura da sua cidade.";
+                else if (texto.includes("iptu") || texto.includes("imposto") || texto.includes("casa")) {
+                    resposta = "🏠 Para verificar o <strong>IPTU</strong> ou contas, utilize o cartão laranja 'IPTU e Finanças' nesta mesma página.";
                 } 
-                else if (texto.includes("notícia") || texto.includes("acontecendo") || texto.includes("jornal")) {
-                    resposta = "📰 As principais novidades e avisos da sua região estão disponíveis no cartão verde 'Notícias da Cidade' logo acima.";
+                else if (texto.includes("notícia") || texto.includes("jornal")) {
+                    resposta = "📰 As novidades da sua região estão disponíveis no cartão verde 'Notícias da Cidade'.";
                 } 
                 else if (texto.includes("socorro") || texto.includes("emergência") || texto.includes("polícia") || texto.includes("bombeiro") || texto.includes("ajuda")) {
-                    resposta = "🚨 Se você precisa de ajuda urgente, utilize os telefones de emergência listados na parte inferior da página: <strong>SAMU (192)</strong>, <strong>Bombeiros (193)</strong> ou <strong>Polícia Militar (190)</strong>.";
-                } 
-                else if (texto.includes("olá") || texto.includes("bom dia") || texto.includes("boa tarde") || texto.includes("boa noite")) {
-                    resposta = "👋 Olá! Que alegria ter você por aqui. Como posso ajudar o senhor ou a senhora hoje?";
+                    resposta = "🚨 Para ajuda urgente, clique nos botões de emergência na parte inferior da página para ligar para o SAMU (192), Bombeiros (193) ou Polícia (190).";
                 } 
                 else {
-                    resposta = `💡 Sobre o assunto "<em>${input.value}</em>", recomendo navegar pelas opções de Acesso Rápido na página ou consultar os números de atendimento da prefeitura local. Estou sempre por aqui para o que precisar!`;
+                    resposta = `💡 Sobre "<em>${input.value}</em>", navegue pelas opções rápidas do site ou consulte os números de atendimento.`;
                 }
 
-                areaResposta.innerHTML = resposta;
-            }, 500);
+                // Insere a resposta junto com o botão de fone de ouvido para ler em voz alta
+                areaResposta.innerHTML = `
+                    <div>${resposta}</div>
+                    <button class="read-aloud-btn" onclick="falarTexto('${resposta.replace(/<[^>]*>?/gm, '')}')">
+                        🎧 Ouvir resposta em voz alta
+                    </button>
+                `;
+            }, 400);
         }
     </script>
 </body>
