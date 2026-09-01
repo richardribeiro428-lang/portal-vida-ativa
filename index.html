@@ -13,7 +13,7 @@
             --primary-blue: #1d6fd8;
             --primary-orange: #e67e22;
             --primary-green: #27ae60;
-            --font-size-base: 18px; /* Fonte maior por padrão para idosos */
+            --font-size-base: 18px;
         }
 
         * {
@@ -64,7 +64,6 @@
             font-weight: 600;
         }
 
-        /* Controles de Acessibilidade */
         .accessibility-controls {
             display: flex;
             gap: 10px;
@@ -85,7 +84,7 @@
             background: #cbd5e1;
         }
 
-        /* Barra de Pesquisa Gemini */
+        /* Barra de Pesquisa Gemini com Área de Resposta */
         .gemini-search-box {
             background: #f0f4f8;
             border: 2px solid #cbd5e1;
@@ -107,6 +106,7 @@
             border-radius: 12px;
             overflow: hidden;
             padding: 5px;
+            margin-bottom: 15px;
         }
 
         .search-input-wrapper input {
@@ -132,7 +132,19 @@
             background: #1557b0;
         }
 
-        /* Seção de Acesso Rápido (Cards Grandes) */
+        /* Aba de Resposta do Assistente Gemini */
+        .gemini-response-area {
+            background: #ffffff;
+            border-left: 5px solid #1d6fd8;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 17px;
+            color: #334155;
+            display: none; /* Fica oculto até o usuário pesquisar */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Seção de Acesso Rápido */
         .section-title {
             font-size: 22px;
             margin-bottom: 20px;
@@ -167,9 +179,19 @@
 
         .card p {
             font-size: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             opacity: 0.95;
             line-height: 1.4;
+        }
+
+        /* Caixa temporária para exibir os links informados */
+        .card-link-preview {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            word-break: break-all;
         }
 
         .card-btn {
@@ -190,7 +212,44 @@
             background: #f1f5f9;
         }
 
-        /* Rodapé com Personagens Animados / Ilustração */
+        /* Seção de Telefones de Emergência */
+        .emergency-section {
+            background: #fff5f5;
+            border: 2px solid #feb2b2;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+        }
+
+        .emergency-section h3 {
+            color: #c53030;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .emergency-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .emergency-item {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-size: 18px;
+            color: #2d3748;
+        }
+
+        .emergency-item span {
+            color: #e53e3e;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        /* Rodapé com Desenho Animado Grande ao Lado */
         footer {
             display: flex;
             justify-content: space-between;
@@ -198,6 +257,8 @@
             border-top: 2px solid #eaeaea;
             padding-top: 25px;
             margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .footer-links {
@@ -215,27 +276,36 @@
             text-decoration: underline;
         }
 
-        /* Área dos Idosos em Desenho Animado (Estilo Ilustrativo) */
-        .cartoon-mascot {
+        /* Estilo do Desenho Animado Grande dos Idosos */
+        .cartoon-mascot-large {
             display: flex;
             align-items: center;
             gap: 15px;
             background: #eef2ff;
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 15px 25px;
+            border-radius: 16px;
             border: 2px dashed #6366f1;
         }
 
-        .cartoon-mascot span {
+        .cartoon-mascot-large .avatar-art {
+            font-size: 42px;
+        }
+
+        .cartoon-mascot-large .mascot-text h4 {
             font-size: 16px;
-            font-weight: 600;
             color: #4f46e5;
+            font-weight: 700;
+        }
+
+        .cartoon-mascot-large .mascot-text p {
+            font-size: 14px;
+            color: #64748b;
         }
     </style>
 </head>
 <body>
 
-    <div class="container" id="mainContainer">
+    <div class="container">
         <header>
             <div class="logo-area">
                 <span style="font-size: 36px;">💙</span>
@@ -257,6 +327,7 @@
                 <input type="text" id="perguntaGemini" placeholder="Ex: Como agendar consulta no posto de saúde?">
                 <button onclick="enviarPesquisa()">Perguntar</button>
             </div>
+            <div id="respostaGemini" class="gemini-response-area"></div>
         </div>
 
         <div class="section-title">Minha Cidade: Acesso Rápido</div>
@@ -266,26 +337,45 @@
                 <div>
                     <h3>Hospitais e Saúde</h3>
                     <p>Agende consultas, veja farmácias de plantão e postos de atendimento próximos.</p>
+                    <div class="card-link-preview">
+                        <strong>Link:</strong> <a href="https://www.gov.br/saude" target="_blank" style="color: white;">Portal do Ministério da Saúde / SUS</a>
+                    </div>
                 </div>
-                <a href="#" class="card-btn">Acessar Saúde</a>
+                <a href="https://www.gov.br/saude" target="_blank" class="card-btn">Acessar Saúde</a>
             </div>
 
             <div class="card iptu">
                 <div>
                     <h3>IPTU e Finanças</h3>
                     <p>Consulte débitos, emite a segunda via do carnê de sua casa com facilidade.</p>
+                    <div class="card-link-preview">
+                        <strong>Link:</strong> <span style="color: white;">Prefeitura Municipal (Consulta de Tributos)</span>
+                    </div>
                 </div>
-                <a href="#" class="card-btn">Ver IPTU e Contas</a>
+                <a href="#" target="_blank" class="card-btn">Ver IPTU e Contas</a>
             </div>
 
             <div class="card noticias">
                 <div>
                     <h3>Notícias da Cidade</h3>
                     <p>Fique por dentro do que acontece na sua região, avisos e campanhas de vacinação.</p>
+                    <div class="card-link-preview">
+                        <strong>Link:</strong> <span style="color: white;">Portal de Notícias Local / G1</span>
+                    </div>
                 </div>
-                <a href="#" class="card-btn">Ler Notícias</a>
+                <a href="#" target="_blank" class="card-btn">Ler Notícias</a>
             </div>
 
+        </div>
+
+        <div class="emergency-section">
+            <h3>🚨 Telefones de Emergência Úteis</h3>
+            <div class="emergency-grid">
+                <div class="emergency-item">SAMU: <span>192</span></div>
+                <div class="emergency-item">Bombeiros: <span>193</span></div>
+                <div class="emergency-item">Polícia Militar: <span>190</span></div>
+                <div class="emergency-item">Farmácia Popular: <span>0800 61 1997</span></div>
+            </div>
         </div>
 
         <footer>
@@ -296,9 +386,12 @@
                 <a href="#">Fale Conosco</a>
             </div>
 
-            <div class="cartoon-mascot">
-                <span style="font-size: 28px;">👵👴💻</span>
-                <span>Feito para você navegar com carinho</span>
+            <div class="cartoon-mascot-large">
+                <div class="avatar-art">👵👴💻</div>
+                <div class="mascot-text">
+                    <h4>Navegação Acolhedora</h4>
+                    <p>Feito com carinho para você</p>
+                </div>
             </div>
         </footer>
     </div>
@@ -308,15 +401,18 @@
 
         function alterarFonte(valor) {
             tamanhoAtual += valor;
-            if (tamanhoAtual < 14) tamanhoAtual = 14; // Limite mínimo
-            if (tamanhoAtual > 26) tamanhoAtual = 26; // Limite máximo
+            if (tamanhoAtual < 14) tamanhoAtual = 14;
+            if (tamanhoAtual > 26) tamanhoAtual = 26;
             document.body.style.fontSize = tamanhoAtual + 'px';
         }
 
         function enviarPesquisa() {
-            const texto = document.getElementById('perguntaGemini').value;
-            if(texto.trim() !== "") {
-                alert("O Assistente Gemini está buscando por: " + texto);
+            const pergunta = document.getElementById('perguntaGemini').value;
+            const areaResposta = document.getElementById('respostaGemini');
+
+            if(pergunta.trim() !== "") {
+                areaResposta.style.display = "block";
+                areaResposta.innerHTML = `<strong>Gemini responde:</strong> Entendi sua dúvida sobre "<em>${pergunta}</em>". Para idosos, recomendo verificar no posto de saúde mais próximo ou ligar na central de atendimento municipal para obter suporte direto.`;
             } else {
                 alert("Por favor, digite o que você está procurando.");
             }
