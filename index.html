@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Vida Ativa - Acesso Fácil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7fc;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-blue: #1d6fd8;
+            --primary-orange: #e67e22;
+            --primary-green: #27ae60;
+            --font-size-base: 18px; /* Fonte maior por padrão para idosos */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: var(--font-size-base);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Cabeçalho */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area h1 {
+            font-size: 24px;
+            color: #1d6fd8;
+        }
+
+        .user-welcome {
+            font-weight: 600;
+        }
+
+        /* Controles de Acessibilidade */
+        .accessibility-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .accessibility-controls button {
+            background: #e2e8f0;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .accessibility-controls button:hover {
+            background: #cbd5e1;
+        }
+
+        /* Barra de Pesquisa Gemini */
+        .gemini-search-box {
+            background: #f0f4f8;
+            border: 2px solid #cbd5e1;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 35px;
+        }
+
+        .gemini-search-box h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            background: white;
+            border: 2px solid #94a3b8;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .search-input-wrapper input {
+            flex: 1;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            outline: none;
+        }
+
+        .search-input-wrapper button {
+            background: #1d6fd8;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .search-input-wrapper button:hover {
+            background: #1557b0;
+        }
+
+        /* Seção de Acesso Rápido (Cards Grandes) */
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            border-radius: 14px;
+            padding: 25px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .card.hospital { background: linear-gradient(135deg, #1d6fd8, #104a99); }
+        .card.iptu { background: linear-gradient(135deg, #e67e22, #b95d0c); }
+        .card.noticias { background: linear-gradient(135deg, #27ae60, #1b7a43); }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .card-btn {
+            background: white;
+            color: #2c3e50;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .card-btn:hover {
+            background: #f1f5f9;
+        }
+
+        /* Rodapé com Personagens Animados / Ilustração */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #eaeaea;
+            padding-top: 25px;
+            margin-top: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #1d6fd8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Área dos Idosos em Desenho Animado (Estilo Ilustrativo) */
+        .cartoon-mascot {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #eef2ff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 2px dashed #6366f1;
+        }
+
+        .cartoon-mascot span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <header>
+            <div class="logo-area">
+                <span style="font-size: 36px;">💙</span>
+                <div>
+                    <h1>Portal Vida Ativa</h1>
+                    <div class="user-welcome">Bem-vindo, Sr. Roberto!</div>
+                </div>
+            </div>
+            
+            <div class="accessibility-controls">
+                <button onclick="alterarFonte(2)">A+</button>
+                <button onclick="alterarFonte(-2)">A-</button>
+            </div>
+        </header>
+
+        <div class="gemini-search-box">
+            <h2>✨ Olá! Sou seu Assistente Gemini. O que você gostaria de saber hoje?</h2>
+            <div class="search-input-wrapper">
+                <input type="text" id="perguntaGemini" placeholder="Ex: Como agendar consulta no posto de saúde?">
+                <button onclick="enviarPesquisa()">Perguntar</button>
+            </div>
+        </div>
+
+        <div class="section-title">Minha Cidade: Acesso Rápido</div>
+        <div class="quick-access-grid">
+            
+            <div class="card hospital">
+                <div>
+                    <h3>Hospitais e Saúde</h3>
+                    <p>Agende consultas, veja farmácias de plantão e postos de atendimento próximos.</p>
+                </div>
+                <a href="#" class="card-btn">Acessar Saúde</a>
+            </div>
+
+            <div class="card iptu">
+                <div>
+                    <h3>IPTU e Finanças</h3>
+                    <p>Consulte débitos, emite a segunda via do carnê de sua casa com facilidade.</p>
+                </div>
+                <a href="#" class="card-btn">Ver IPTU e Contas</a>
+            </div>
+
+            <div class="card noticias">
+                <div>
+                    <h3>Notícias da Cidade</h3>
+                    <p>Fique por dentro do que acontece na sua região, avisos e campanhas de vacinação.</p>
+                </div>
+                <a href="#" class="card-btn">Ler Notícias</a>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="#">Sobre Nós</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Dicas de Segurança</a>
+                <a href="#">Fale Conosco</a>
+            </div>
+
+            <div class="cartoon-mascot">
+                <span style="font-size: 28px;">👵👴💻</span>
+                <span>Feito para você navegar com carinho</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let tamanhoAtual = 18;
+
+        function alterarFonte(valor) {
+            tamanhoAtual += valor;
+            if (tamanhoAtual < 14) tamanhoAtual = 14; // Limite mínimo
+            if (tamanhoAtual > 26) tamanhoAtual = 26; // Limite máximo
+            document.body.style.fontSize = tamanhoAtual + 'px';
+        }
+
+        function enviarPesquisa() {
+            const texto = document.getElementById('perguntaGemini').value;
+            if(texto.trim() !== "") {
+                alert("O Assistente Gemini está buscando por: " + texto);
+            } else {
+                alert("Por favor, digite o que você está procurando.");
+            }
+        }
+    </script>
+</body>
+</html>
