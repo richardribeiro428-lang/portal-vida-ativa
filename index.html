@@ -84,7 +84,7 @@
         }
 
         .header-center img {
-            max-height: 80px; /* Ajuste a altura se precisar que a imagem fique maior/menor */
+            max-height: 80px;
             width: auto;
             object-fit: contain;
         }
@@ -449,11 +449,11 @@
 <body>
 
     <div class="container">
-        <!-- Cabeçalho Atualizado com Imagens -->
+        <!-- Cabeçalho Atualizado com as Imagens Corretas (.jfif) -->
         <header>
             <div class="logo-area">
                 <!-- Imagem do Ícone -->
-                <img src="logo-icone.png" alt="Ícone Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:36px;\'>💙</span>');">
+                <img src="logo-icone.png.jfif" alt="Ícone Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:36px;\'>💙</span>');">
                 <div>
                     <h1>Portal Vida Ativa</h1>
                     <div class="user-welcome">Bem-vindo, Sr. Roberto!</div>
@@ -462,7 +462,7 @@
             
             <div class="header-center">
                 <!-- Imagem do Texto Central -->
-                <img src="logo-texto.png" alt="Vida Ativa - Cuidado e Comunidade na Maturidade" onerror="this.style.display='none';">
+                <img src="logo-texto.png.jfif" alt="Vida Ativa - Cuidado e Comunidade na Maturidade" onerror="this.style.display='none';">
             </div>
 
             <div class="accessibility-controls">
@@ -575,7 +575,6 @@
             document.body.style.fontSize = tamanhoAtual + 'px';
         }
 
-        // Função para atualizar os botões dos cards com os links que você colar
         function atualizarLink(tipo) {
             if (tipo === 'hospital') {
                 let url = document.getElementById('linkHospital').value;
@@ -607,7 +606,7 @@
             falarTexto(texto);
         }
 
-        // Sistema de Reconhecimento de Voz (Falar pelo microfone)
+        // Sistema de Reconhecimento de Voz
         function ativarMicrofone() {
             const btnMic = document.getElementById('btnMic');
             const input = document.getElementById('perguntaGemini');
@@ -657,7 +656,6 @@
             }
         }
 
-        // Inteligência do Gemini Adaptada
         function perguntarGemini() {
             const input = document.getElementById('perguntaGemini');
             const areaResposta = document.getElementById('respostaGemini');
@@ -690,11 +688,9 @@
                     resposta = "🚨 Para ajuda urgente, desça a página e clique nos botões de emergência para ligar para o SAMU, Bombeiros ou Polícia Militar.";
                 } 
                 else {
-                    // Resposta padrão sem repetir o texto digitado
                     resposta = "💡 Para encontrar o que procura, navegue pelas opções rápidas nos cartões abaixo ou consulte os números de atendimento. Estou sempre por aqui para ajudar!";
                 }
 
-                // Criação do HTML interno separando a função de leitura para evitar bugs de aspas
                 areaResposta.innerHTML = `
                     <div>${resposta}</div>
                     <button class="read-aloud-btn" id="btnOuvirRespostaGemini">
@@ -702,7 +698,6 @@
                     </button>
                 `;
 
-                // Adiciona o evento de clique pelo Javascript garantindo que o áudio funcione sem erros
                 document.getElementById('btnOuvirRespostaGemini').onclick = function() {
                     falarTexto(resposta);
                 };
