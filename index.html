@@ -7,12 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Cores da sua marca */
+            --color-teal: #369F9D;
+            --color-orange: #F5AA69;
+            --color-coral: #F37B7B;
+            --color-darkblue: #1F3B62;
+            
             --bg-color: #f4f7fc;
             --card-bg: #ffffff;
-            --text-color: #2c3e50;
-            --primary-blue: #1d6fd8;
-            --primary-orange: #e67e22;
-            --primary-green: #27ae60;
+            --text-color: #1F3B62;
             --font-size-base: 18px;
         }
 
@@ -39,43 +42,44 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        /* Cabeçalho Novo com Layout Central */
+        /* Cabeçalho Ajustado com Imagens Maiores */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #eaeaea;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
             margin-bottom: 30px;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
             gap: 15px;
-            flex: 1;
+            flex: 1.5;
         }
 
+        /* Ícone maior */
         .logo-icon {
-            width: 45px;
+            width: 80px; /* Aumentado */
             height: auto;
         }
 
         .logo-area h1 {
-            font-size: 20px;
-            color: #1d6fd8;
-            margin-bottom: 2px;
+            font-size: 22px;
+            color: var(--color-darkblue);
+            margin-bottom: 4px;
         }
 
         .user-welcome {
             font-weight: 600;
-            font-size: 15px;
-            color: #475569;
+            font-size: 16px;
+            color: var(--color-teal);
         }
 
-        /* Área central para a imagem dos textos */
+        /* Imagem central maior */
         .header-center {
             flex: 2;
             display: flex;
@@ -84,7 +88,7 @@
         }
 
         .header-center img {
-            max-height: 80px; /* Ajuste a altura se precisar que a imagem fique maior/menor */
+            max-height: 130px; /* Aumentado para dar mais destaque */
             width: auto;
             object-fit: contain;
         }
@@ -99,12 +103,14 @@
 
         .accessibility-controls button {
             background: #e2e8f0;
+            color: var(--color-darkblue);
             border: none;
             padding: 10px 15px;
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
             font-size: 16px;
+            transition: background 0.2s;
         }
 
         .accessibility-controls button:hover {
@@ -115,8 +121,8 @@
         .intro-assistant {
             display: flex;
             align-items: center;
-            background: #eff6ff;
-            border: 2px solid #bfdbfe;
+            background: #f0faf9;
+            border: 2px solid var(--color-teal);
             padding: 20px;
             border-radius: 16px;
             margin-bottom: 30px;
@@ -132,36 +138,36 @@
         }
 
         .assistant-speech h3 {
-            color: #1e40af;
+            color: var(--color-darkblue);
             font-size: 20px;
             margin-bottom: 5px;
         }
 
         .assistant-speech p {
             font-size: 16px;
-            color: #334155;
             line-height: 1.5;
         }
 
         .speech-btn {
-            background: #2563eb;
+            background: var(--color-teal);
             color: white;
             border: none;
-            padding: 8px 14px;
+            padding: 10px 16px;
             border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 8px;
+            margin-top: 10px;
             font-size: 14px;
+            transition: opacity 0.2s;
         }
 
         .speech-btn:hover {
-            background: #1d4ed8;
+            opacity: 0.85;
         }
 
         /* Barra de Pesquisa Gemini com Microfone */
         .gemini-search-box {
-            background: #f0f4f8;
+            background: #f8fafc;
             border: 2px solid #cbd5e1;
             padding: 25px;
             border-radius: 16px;
@@ -171,13 +177,13 @@
         .gemini-search-box h2 {
             font-size: 22px;
             margin-bottom: 15px;
-            color: #1e293b;
+            color: var(--color-darkblue);
         }
 
         .search-input-wrapper {
             display: flex;
             background: white;
-            border: 2px solid #94a3b8;
+            border: 2px solid var(--color-teal);
             border-radius: 12px;
             overflow: hidden;
             padding: 5px;
@@ -191,6 +197,7 @@
             padding: 15px;
             font-size: 18px;
             outline: none;
+            color: var(--color-darkblue);
         }
 
         .mic-btn {
@@ -209,7 +216,7 @@
         }
 
         .mic-btn.escutando {
-            background: #fee2e2;
+            background: #ffe4e6;
             animation: pulse 1.5s infinite;
         }
 
@@ -220,7 +227,7 @@
         }
 
         .search-input-wrapper button.search-submit {
-            background: #1d6fd8;
+            background: var(--color-darkblue);
             color: white;
             border: none;
             padding: 15px 25px;
@@ -231,17 +238,17 @@
         }
 
         .search-input-wrapper button.search-submit:hover {
-            background: #1557b0;
+            opacity: 0.9;
         }
 
         /* Aba de Resposta Dinâmica com Opção de Ouvir (Fone) */
         .gemini-response-area {
             background: #ffffff;
-            border-left: 5px solid #1d6fd8;
+            border-left: 5px solid var(--color-teal);
             padding: 20px;
             border-radius: 8px;
             font-size: 18px;
-            color: #1e293b;
+            color: var(--color-darkblue);
             display: none;
             box-shadow: 0 3px 10px rgba(0,0,0,0.06);
             line-height: 1.5;
@@ -249,9 +256,9 @@
         }
 
         .read-aloud-btn {
-            background: #e0f2fe;
-            color: #0369a1;
-            border: none;
+            background: #f0faf9;
+            color: var(--color-teal);
+            border: 2px solid var(--color-teal);
             padding: 8px 12px;
             border-radius: 6px;
             font-weight: bold;
@@ -264,7 +271,8 @@
         }
 
         .read-aloud-btn:hover {
-            background: #bae6fd;
+            background: var(--color-teal);
+            color: white;
         }
 
         /* Seção de Acesso Rápido */
@@ -272,6 +280,7 @@
             font-size: 22px;
             margin-bottom: 20px;
             font-weight: 700;
+            color: var(--color-darkblue);
         }
 
         .quick-access-grid {
@@ -291,9 +300,10 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
-        .card.hospital { background: linear-gradient(135deg, #1d6fd8, #104a99); }
-        .card.iptu { background: linear-gradient(135deg, #e67e22, #b95d0c); }
-        .card.noticias { background: linear-gradient(135deg, #27ae60, #1b7a43); }
+        /* Cores da marca aplicadas aos cartões */
+        .card.hospital { background: linear-gradient(135deg, var(--color-teal), #277a79); }
+        .card.iptu { background: linear-gradient(135deg, var(--color-orange), #d98d4d); }
+        .card.noticias { background: linear-gradient(135deg, var(--color-coral), #d66161); }
 
         .card h3 {
             font-size: 24px;
@@ -328,11 +338,12 @@
             border: none;
             font-size: 14px;
             outline: none;
+            color: #333;
         }
 
         .card-btn {
             background: white;
-            color: #2c3e50;
+            color: var(--color-darkblue);
             border: none;
             padding: 15px;
             border-radius: 8px;
@@ -345,20 +356,20 @@
         }
 
         .card-btn:hover {
-            background: #f1f5f9;
+            background: #f8fafc;
         }
 
         /* Telefones de Emergência Clicáveis */
         .emergency-section {
-            background: #fff5f5;
-            border: 2px solid #feb2b2;
+            background: #fff8f8;
+            border: 2px solid var(--color-coral);
             padding: 20px;
             border-radius: 14px;
             margin-bottom: 30px;
         }
 
         .emergency-section h3 {
-            color: #c53030;
+            color: var(--color-coral);
             font-size: 20px;
             margin-bottom: 15px;
         }
@@ -376,7 +387,7 @@
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             font-size: 18px;
-            color: #2d3748;
+            color: var(--color-darkblue);
             text-decoration: none;
             display: inline-block;
             border: 2px solid #fed7d7;
@@ -388,7 +399,7 @@
         }
 
         .emergency-item span {
-            color: #e53e3e;
+            color: var(--color-coral);
             font-size: 20px;
             margin-left: 5px;
         }
@@ -411,7 +422,7 @@
         }
 
         .footer-links a {
-            color: #1d6fd8;
+            color: var(--color-teal);
             text-decoration: none;
             font-weight: 600;
         }
@@ -424,10 +435,10 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            background: #eef2ff;
+            background: #f0faf9;
             padding: 15px 25px;
             border-radius: 16px;
-            border: 2px dashed #6366f1;
+            border: 2px dashed var(--color-teal);
         }
 
         .cartoon-mascot-large .avatar-art {
@@ -436,24 +447,23 @@
 
         .cartoon-mascot-large .mascot-text h4 {
             font-size: 16px;
-            color: #4f46e5;
+            color: var(--color-teal);
             font-weight: 700;
         }
 
         .cartoon-mascot-large .mascot-text p {
             font-size: 14px;
-            color: #64748b;
+            color: var(--color-darkblue);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Cabeçalho Atualizado com Imagens -->
+        <!-- Cabeçalho Atualizado com as Imagens PNG Corretas e Maiores -->
         <header>
             <div class="logo-area">
-                <!-- Imagem do Ícone -->
-                <img src="logo-icone.png" alt="Ícone Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:36px;\'>💙</span>');">
+                <img src="logo-icone.png" alt="Ícone Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:46px;\'>💙</span>');">
                 <div>
                     <h1>Portal Vida Ativa</h1>
                     <div class="user-welcome">Bem-vindo, Sr. Roberto!</div>
@@ -461,7 +471,6 @@
             </div>
             
             <div class="header-center">
-                <!-- Imagem do Texto Central -->
                 <img src="logo-texto.png" alt="Vida Ativa - Cuidado e Comunidade na Maturidade" onerror="this.style.display='none';">
             </div>
 
@@ -575,7 +584,6 @@
             document.body.style.fontSize = tamanhoAtual + 'px';
         }
 
-        // Função para atualizar os botões dos cards com os links que você colar
         function atualizarLink(tipo) {
             if (tipo === 'hospital') {
                 let url = document.getElementById('linkHospital').value;
@@ -589,7 +597,6 @@
             }
         }
 
-        // Sistema de Síntese de Voz Robusto (Ouvir texto)
         function falarTexto(textoParaFalar) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel(); 
@@ -607,7 +614,6 @@
             falarTexto(texto);
         }
 
-        // Sistema de Reconhecimento de Voz (Falar pelo microfone)
         function ativarMicrofone() {
             const btnMic = document.getElementById('btnMic');
             const input = document.getElementById('perguntaGemini');
@@ -657,7 +663,6 @@
             }
         }
 
-        // Inteligência do Gemini Adaptada
         function perguntarGemini() {
             const input = document.getElementById('perguntaGemini');
             const areaResposta = document.getElementById('respostaGemini');
@@ -678,23 +683,21 @@
                     resposta = "🤖 Sou o Assistente Gemini, seu assistente virtual criado para ajudar você a navegar com facilidade pelo portal!";
                 } 
                 else if (texto.includes("saúde")  || texto.includes("hospital") || texto.includes("médico") || texto.includes("consulta") || texto.includes("remédio") || texto.includes("dor")) {
-                    resposta = "🏥 Para assuntos de saúde, clique no botão azul 'Acessar Saúde' nos cartões abaixo. Se for urgência, ligue direto para o SAMU no 192 clicando nos botões de emergência no fim da página.";
+                    resposta = "🏥 Para assuntos de saúde, clique no botão azul claro 'Acessar Saúde' nos cartões abaixo. Se for urgência, ligue direto para o SAMU no 192 clicando nos botões de emergência no fim da página.";
                 } 
                 else if (texto.includes("iptu") || texto.includes("imposto") || texto.includes("casa") || texto.includes("pagar")) {
                     resposta = "🏠 Para verificar o IPTU ou contas da casa, utilize o cartão laranja 'IPTU e Finanças' logo abaixo nesta página.";
                 } 
                 else if (texto.includes("notícia") || texto.includes("jornal") || texto.includes("acontecendo")) {
-                    resposta = "📰 As principais novidades da sua região estão disponíveis no cartão verde 'Notícias da Cidade'.";
+                    resposta = "📰 As principais novidades da sua região estão disponíveis no cartão salmão 'Notícias da Cidade'.";
                 } 
                 else if (texto.includes("socorro") || texto.includes("emergência") || texto.includes("polícia") || texto.includes("bombeiro") || texto.includes("ajuda")) {
                     resposta = "🚨 Para ajuda urgente, desça a página e clique nos botões de emergência para ligar para o SAMU, Bombeiros ou Polícia Militar.";
                 } 
                 else {
-                    // Resposta padrão sem repetir o texto digitado
                     resposta = "💡 Para encontrar o que procura, navegue pelas opções rápidas nos cartões abaixo ou consulte os números de atendimento. Estou sempre por aqui para ajudar!";
                 }
 
-                // Criação do HTML interno separando a função de leitura para evitar bugs de aspas
                 areaResposta.innerHTML = `
                     <div>${resposta}</div>
                     <button class="read-aloud-btn" id="btnOuvirRespostaGemini">
@@ -702,7 +705,6 @@
                     </button>
                 `;
 
-                // Adiciona o evento de clique pelo Javascript garantindo que o áudio funcione sem erros
                 document.getElementById('btnOuvirRespostaGemini').onclick = function() {
                     falarTexto(resposta);
                 };
