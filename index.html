@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Vida Ativa - Acesso Fácil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Cores da sua marca */
-            --color-teal: #369F9D;
-            --color-orange: #F5AA69;
-            --color-coral: #F37B7B;
-            --color-darkblue: #1F3B62;
+            /* Paleta de Cores Fiel ao Novo Layout */
+            --bg-page: #FAF5F0;
+            --bg-card: #FFFFFF;
             
-            --bg-color: #f4f7fc;
-            --card-bg: #ffffff;
-            --text-color: #1F3B62;
+            --text-title: #E17558; /* Laranja/Coral dos Títulos */
+            --text-darkblue: #2C5871; /* Azul escuro do portal */
+            --text-muted: #8D99A3; /* Cinza dos textos secundários */
+            
+            --btn-teal: #2B6B7C; /* Azul/Verde dos botões e IPTU */
+            --btn-orange: #F59D71; /* Laranja Saúde */
+            --btn-coral: #ED7458; /* Coral Notícias */
+            
+            --border-color: #F3EBE1;
             --font-size-base: 18px;
         }
 
@@ -27,451 +31,293 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-page);
+            color: var(--text-darkblue);
             font-size: var(--font-size-base);
-            padding: 20px;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
         }
 
+        /* O "Cartão Branco" Central que engloba tudo */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 1100px;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
         }
 
-        /* Cabeçalho Ajustado com Imagens Maiores */
+        /* CABEÇALHO */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 25px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
-            flex: 1.5;
+            gap: 20px;
         }
 
-        /* Ícone maior */
+        /* IMAGEM BEM MAIOR AQUI */
         .logo-icon {
-            width: 80px; /* Aumentado */
+            width: 140px; /* Aumentado significativamente */
             height: auto;
-        }
-
-        .logo-area h1 {
-            font-size: 22px;
-            color: var(--color-darkblue);
-            margin-bottom: 4px;
-        }
-
-        .user-welcome {
-            font-weight: 600;
-            font-size: 16px;
-            color: var(--color-teal);
-        }
-
-        /* Imagem central maior */
-        .header-center {
-            flex: 2;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .header-center img {
-            max-height: 130px; /* Aumentado para dar mais destaque */
-            width: auto;
             object-fit: contain;
+        }
+
+        .logo-text-group h1 {
+            font-size: 26px;
+            color: var(--text-darkblue);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .logo-text-group p {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
         .accessibility-controls {
             display: flex;
             gap: 10px;
-            align-items: center;
-            flex: 1;
-            justify-content: flex-end;
         }
 
         .accessibility-controls button {
-            background: #e2e8f0;
-            color: var(--color-darkblue);
+            background: #FDF4EB;
+            color: var(--text-title);
             border: none;
-            padding: 10px 15px;
+            padding: 12px 18px;
             border-radius: 8px;
             font-weight: bold;
-            cursor: pointer;
             font-size: 16px;
-            transition: background 0.2s;
-        }
-
-        .accessibility-controls button:hover {
-            background: #cbd5e1;
-        }
-
-        /* Seção do Boneco Apresentando o Site */
-        .intro-assistant {
-            display: flex;
-            align-items: center;
-            background: #f0faf9;
-            border: 2px solid var(--color-teal);
-            padding: 20px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            gap: 20px;
-        }
-
-        .assistant-avatar {
-            font-size: 55px;
-            background: white;
-            padding: 10px 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .assistant-speech h3 {
-            color: var(--color-darkblue);
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .assistant-speech p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .speech-btn {
-            background: var(--color-teal);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 6px;
-            font-weight: bold;
             cursor: pointer;
-            margin-top: 10px;
-            font-size: 14px;
             transition: opacity 0.2s;
         }
 
-        .speech-btn:hover {
-            opacity: 0.85;
+        .accessibility-controls button:hover {
+            opacity: 0.8;
         }
 
-        /* Barra de Pesquisa Gemini com Microfone */
-        .gemini-search-box {
-            background: #f8fafc;
-            border: 2px solid #cbd5e1;
+        /* ÁREA DE BOAS VINDAS (BONECO) */
+        .intro-box {
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            border: 2px solid var(--border-color);
             padding: 25px;
             border-radius: 16px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
+            gap: 25px;
         }
 
-        .gemini-search-box h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--color-darkblue);
-        }
-
-        .search-input-wrapper {
+        .avatar-container {
             display: flex;
-            background: white;
-            border: 2px solid var(--color-teal);
-            border-radius: 12px;
-            overflow: hidden;
-            padding: 5px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #FDF8F3;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 16px;
+            min-width: 110px;
+        }
+
+        .avatar-container .face { font-size: 45px; margin-bottom: 10px; }
+        .avatar-container .bubble { font-size: 24px; }
+
+        .intro-text h3 {
+            color: var(--text-title);
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .intro-text p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.5;
             margin-bottom: 15px;
+        }
+
+        .speech-btn {
+            background: var(--btn-teal);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .speech-btn:hover { background: #225664; }
+
+        /* BARRA DE PESQUISA GEMINI */
+        .gemini-box {
+            margin-bottom: 40px;
+        }
+
+        .gemini-box h2 {
+            font-size: 20px;
+            color: var(--text-title);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .search-wrapper {
+            display: flex;
+            border: 2px solid var(--btn-teal);
+            border-radius: 12px;
+            padding: 6px;
+            background: white;
             align-items: center;
         }
 
-        .search-input-wrapper input {
+        .search-wrapper input {
             flex: 1;
             border: none;
             padding: 15px;
             font-size: 18px;
             outline: none;
-            color: var(--color-darkblue);
+            color: var(--text-darkblue);
         }
 
         .mic-btn {
-            background: #f1f5f9;
+            background: transparent;
             border: none;
-            padding: 12px 18px;
-            font-size: 20px;
+            font-size: 24px;
+            padding: 0 15px;
             cursor: pointer;
-            border-radius: 8px;
-            margin-right: 5px;
-            transition: background 0.2s;
+            transition: transform 0.2s;
         }
-
-        .mic-btn:hover {
-            background: #e2e8f0;
-        }
-
+        
         .mic-btn.escutando {
-            background: #ffe4e6;
+            color: red;
             animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
 
-        .search-input-wrapper button.search-submit {
-            background: var(--color-darkblue);
+        .search-submit {
+            background: var(--btn-teal);
             color: white;
             border: none;
-            padding: 15px 25px;
-            font-size: 18px;
+            padding: 14px 28px;
+            font-size: 16px;
             border-radius: 8px;
+            font-weight: 600;
             cursor: pointer;
+        }
+
+        .search-submit:hover { opacity: 0.9; }
+
+        /* AREA DE RESPOSTA DO GEMINI */
+        .gemini-response-area {
+            background: #FDF8F3;
+            border-left: 5px solid var(--text-title);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 18px;
+            color: var(--text-darkblue);
+            display: none;
+            line-height: 1.5;
+        }
+
+        /* ACESSO RÁPIDO (CARTÕES HORIZONTAIS) */
+        .quick-access-title {
+            font-size: 20px;
+            color: var(--text-title);
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
-        .search-input-wrapper button.search-submit:hover {
-            opacity: 0.9;
-        }
-
-        /* Aba de Resposta Dinâmica com Opção de Ouvir (Fone) */
-        .gemini-response-area {
-            background: #ffffff;
-            border-left: 5px solid var(--color-teal);
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 18px;
-            color: var(--color-darkblue);
-            display: none;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-            line-height: 1.5;
-            position: relative;
-        }
-
-        .read-aloud-btn {
-            background: #f0faf9;
-            color: var(--color-teal);
-            border: 2px solid var(--color-teal);
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 15px;
-        }
-
-        .read-aloud-btn:hover {
-            background: var(--color-teal);
-            color: white;
-        }
-
-        /* Seção de Acesso Rápido */
-        .section-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            color: var(--color-darkblue);
-        }
-
-        .quick-access-grid {
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-bottom: 40px;
         }
 
         .card {
-            border-radius: 14px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 25px 20px;
             color: white;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Cores da marca aplicadas aos cartões */
-        .card.hospital { background: linear-gradient(135deg, var(--color-teal), #277a79); }
-        .card.iptu { background: linear-gradient(135deg, var(--color-orange), #d98d4d); }
-        .card.noticias { background: linear-gradient(135deg, var(--color-coral), #d66161); }
-
-        .card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 16px;
-            margin-bottom: 15px;
-            opacity: 0.95;
-            line-height: 1.4;
-        }
-
-        .admin-link-input-area {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .admin-link-input-area label {
-            display: block;
-            margin-bottom: 3px;
-            font-weight: bold;
-        }
-
-        .admin-link-input-area input {
-            width: 100%;
-            padding: 6px;
-            border-radius: 4px;
-            border: none;
-            font-size: 14px;
-            outline: none;
-            color: #333;
-        }
-
-        .card-btn {
-            background: white;
-            color: var(--color-darkblue);
-            border: none;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .card-btn:hover {
-            background: #f8fafc;
-        }
-
-        /* Telefones de Emergência Clicáveis */
-        .emergency-section {
-            background: #fff8f8;
-            border: 2px solid var(--color-coral);
-            padding: 20px;
-            border-radius: 14px;
-            margin-bottom: 30px;
-        }
-
-        .emergency-section h3 {
-            color: var(--color-coral);
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .emergency-grid {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .emergency-item {
-            background: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            font-size: 18px;
-            color: var(--color-darkblue);
-            text-decoration: none;
-            display: inline-block;
-            border: 2px solid #fed7d7;
-            transition: background 0.2s;
-        }
-
-        .emergency-item:hover {
-            background: #fff1f1;
-        }
-
-        .emergency-item span {
-            color: var(--color-coral);
-            font-size: 20px;
-            margin-left: 5px;
-        }
-
-        /* Rodapé */
-        footer {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-top: 2px solid #eaeaea;
-            padding-top: 25px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .footer-links a {
-            color: var(--color-teal);
+            justify-content: space-between;
             text-decoration: none;
             font-weight: 600;
+            font-size: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .footer-links a:hover {
-            text-decoration: underline;
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .cartoon-mascot-large {
+        .card.saude { background-color: var(--btn-orange); }
+        .card.iptu { background-color: var(--btn-teal); }
+        .card.noticias { background-color: var(--btn-coral); }
+
+        .card-icon {
+            font-size: 28px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            background: #f0faf9;
-            padding: 15px 25px;
-            border-radius: 16px;
-            border: 2px dashed var(--color-teal);
+            justify-content: center;
+            border-radius: 10px;
         }
 
-        .cartoon-mascot-large .avatar-art {
-            font-size: 42px;
-        }
-
-        .cartoon-mascot-large .mascot-text h4 {
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            color: var(--text-title);
             font-size: 16px;
-            color: var(--color-teal);
-            font-weight: 700;
+            font-weight: 500;
+            padding-top: 20px;
         }
 
-        .cartoon-mascot-large .mascot-text p {
-            font-size: 14px;
-            color: var(--color-darkblue);
+        /* Responsividade para telas menores */
+        @media (max-width: 850px) {
+            .cards-grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .accessibility-controls { align-self: flex-start; }
+            .intro-box { flex-direction: column; text-align: center; }
+            .search-wrapper { flex-direction: column; padding: 15px; gap: 15px; }
+            .search-wrapper input { width: 100%; padding: 5px; }
+            .search-submit { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Cabeçalho Atualizado com as Imagens PNG Corretas e Maiores -->
+        
         <header>
             <div class="logo-area">
-                <img src="logo-icone.png" alt="Ícone Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:46px;\'>💙</span>');">
-                <div>
+                <img src="logo-icone.png" alt="Logo Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:50px;\'>💙</span>');">
+                <div class="logo-text-group">
                     <h1>Portal Vida Ativa</h1>
-                    <div class="user-welcome">Bem-vindo, Sr. Roberto!</div>
+                    <p>Bem-vindo, Sr. Roberto!</p>
                 </div>
-            </div>
-            
-            <div class="header-center">
-                <img src="logo-texto.png" alt="Vida Ativa - Cuidado e Comunidade na Maturidade" onerror="this.style.display='none';">
             </div>
 
             <div class="accessibility-controls">
@@ -480,103 +326,58 @@
             </div>
         </header>
 
-        <!-- Boneco/Assistente de Boas-Vindas Explicando o Sistema de Voz -->
-        <div class="intro-assistant">
-            <div class="assistant-avatar">👴💬</div>
-            <div class="assistant-speech">
+        <div class="intro-box">
+            <div class="avatar-container">
+                <div class="face">👨‍🦳</div>
+                <div class="bubble">💬</div>
+            </div>
+            <div class="intro-text">
                 <h3>Olá! Seja muito bem-vindo ao seu portal!</h3>
                 <p id="textoBoasVindas">Sou seu guia. Se preferir não digitar, basta clicar no desenho do microfone na barra de pesquisa abaixo e falar o que procura. Quando eu responder, clique no botão de fone de ouvido para ouvir tudo o que eu disser!</p>
                 <button class="speech-btn" onclick="ouvirBoasVindas()">🔊 Ouvir Boas-Vindas</button>
             </div>
         </div>
 
-        <!-- Barra de Busca Assistente Gemini com Microfone -->
-        <div class="gemini-search-box">
-            <h2>✨ Assistente Gemini: O que você gostaria de saber hoje?</h2>
-            <div class="search-input-wrapper">
-                <input type="text" id="perguntaGemini" placeholder="Escreva aqui ou clique no microfone ao lado para falar..." onkeypress="verificarEnter(event)">
+        <div class="gemini-box">
+            <h2>Assistente Gemini: O que você gostaria de saber hoje?</h2>
+            <div class="search-wrapper">
+                <input type="text" id="perguntaGemini" placeholder="Escreva aqui ou fale no microfone..." onkeypress="verificarEnter(event)">
                 <button class="mic-btn" id="btnMic" onclick="ativarMicrofone()" title="Falar por voz">🎤</button>
                 <button class="search-submit" onclick="perguntarGemini()">Perguntar</button>
             </div>
             <div id="respostaGemini" class="gemini-response-area"></div>
         </div>
 
-        <!-- Seção de Acesso Rápido -->
-        <div class="section-title">Minha Cidade: Acesso Rápido</div>
-        <div class="quick-access-grid">
+        <div class="quick-access-title">Minha Cidade: Acesso Rápido</div>
+        <div class="cards-grid">
             
-            <div class="card hospital">
-                <div>
-                    <h3>Hospitais e Saúde</h3>
-                    <p>Agende consultas, veja farmácias de plantão e postos de atendimento próximos.</p>
-                    <div class="admin-link-input-area">
-                        <label>Cole o Link do Hospital/Saúde aqui:</label>
-                        <input type="text" id="linkHospital" placeholder="Ex: https://exemplo.com/saude" oninput="atualizarLink('hospital')">
-                    </div>
-                </div>
-                <a href="#" id="btnHospitalLink" target="_blank" class="card-btn">Acessar Saúde</a>
-            </div>
+            <a href="#" class="card saude">
+                <span>Hospitais e Saúde</span>
+                <div class="card-icon">➕</div>
+            </a>
 
-            <div class="card iptu">
-                <div>
-                    <h3>IPTU e Finanças</h3>
-                    <p>Consulte débitos, emita a segunda via do carnê da sua casa com facilidade.</p>
-                    <div class="admin-link-input-area">
-                        <label>Cole o Link do IPTU aqui:</label>
-                        <input type="text" id="linkIptu" placeholder="Ex: https://exemplo.com/iptu" oninput="atualizarLink('iptu')">
-                    </div>
-                </div>
-                <a href="#" id="btnIptuLink" target="_blank" class="card-btn">Ver IPTU e Contas</a>
-            </div>
+            <a href="#" class="card iptu">
+                <span>IPTU e Finanças</span>
+                <div class="card-icon">💲</div>
+            </a>
 
-            <div class="card noticias">
-                <div>
-                    <h3>Notícias da Cidade</h3>
-                    <p>Fique por dentro do que acontece na sua região, avisos e campanhas de vacinação.</p>
-                    <div class="admin-link-input-area">
-                        <label>Cole o Link de Notícias aqui:</label>
-                        <input type="text" id="linkNoticias" placeholder="Ex: https://exemplo.com/noticias" oninput="atualizarLink('noticias')">
-                    </div>
-                </div>
-                <a href="#" id="btnNoticiasLink" target="_blank" class="card-btn">Ler Notícias</a>
-            </div>
+            <a href="#" class="card noticias">
+                <span>Notícias da Cidade</span>
+                <div class="card-icon">📰</div>
+            </a>
 
         </div>
 
-        <!-- Telefones de Emergência com Abertura Direta para Discagem -->
-        <div class="emergency-section">
-            <h3>🚨 Telefones de Emergência Úteis (Clique para ligar direto)</h3>
-            <div class="emergency-grid">
-                <a href="tel:192" class="emergency-item">SAMU: <span>192</span> 📞</a>
-                <a href="tel:193" class="emergency-item">Bombeiros: <span>193</span> 📞</a>
-                <a href="tel:190" class="emergency-item">Polícia Militar: <span>190</span> 📞</a>
-                <a href="tel:0800611997" class="emergency-item">Farmácia Popular: <span>0800 61 1997</span> 📞</a>
-            </div>
-        </div>
-
-        <!-- Rodapé -->
         <footer>
-            <div class="footer-links">
-                <a href="#">Sobre Nós</a>
-                <a href="#">Privacidade</a>
-                <a href="#">Dicas de Segurança</a>
-                <a href="#">Fale Conosco</a>
-            </div>
-
-            <div class="cartoon-mascot-large">
-                <div class="avatar-art">👵👴💻</div>
-                <div class="mascot-text">
-                    <h4>Navegação Acolhedora</h4>
-                    <p>Feito com carinho para você</p>
-                </div>
-            </div>
+            Guia de Boas-Vindas Cuidado e Comunidade na Maturidade
         </footer>
+
     </div>
 
-    <!-- Script de Interação, Microfone, Voz e Links -->
     <script>
         let tamanhoAtual = 18;
 
+        // Função de aumentar/diminuir fonte
         function alterarFonte(valor) {
             tamanhoAtual += valor;
             if (tamanhoAtual < 14) tamanhoAtual = 14;
@@ -584,19 +385,7 @@
             document.body.style.fontSize = tamanhoAtual + 'px';
         }
 
-        function atualizarLink(tipo) {
-            if (tipo === 'hospital') {
-                let url = document.getElementById('linkHospital').value;
-                document.getElementById('btnHospitalLink').href = url ? url : '#';
-            } else if (tipo === 'iptu') {
-                let url = document.getElementById('linkIptu').value;
-                document.getElementById('btnIptuLink').href = url ? url : '#';
-            } else if (tipo === 'noticias') {
-                let url = document.getElementById('linkNoticias').value;
-                document.getElementById('btnNoticiasLink').href = url ? url : '#';
-            }
-        }
-
+        // Função para ler texto em voz alta
         function falarTexto(textoParaFalar) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel(); 
@@ -614,6 +403,7 @@
             falarTexto(texto);
         }
 
+        // Função de Reconhecimento de Voz (Microfone)
         function ativarMicrofone() {
             const btnMic = document.getElementById('btnMic');
             const input = document.getElementById('perguntaGemini');
@@ -639,19 +429,18 @@
                 const speechResult = event.results[0][0].transcript;
                 input.value = speechResult;
                 btnMic.classList.remove('escutando');
-                input.placeholder = "Escreva aqui ou clique no microfone ao lado para falar...";
-                perguntarGemini();
+                input.placeholder = "Escreva aqui ou fale no microfone...";
+                perguntarGemini(); // Já faz a pergunta automaticamente após ouvir
             };
 
             recognition.onerror = function(event) {
                 btnMic.classList.remove('escutando');
-                input.placeholder = "Escreva aqui ou clique no microfone ao lado para falar...";
-                alert("Não conseguimos ouvir direito. Tente novamente.");
+                input.placeholder = "Escreva aqui ou fale no microfone...";
             };
 
             recognition.onend = function() {
                 btnMic.classList.remove('escutando');
-                input.placeholder = "Escreva aqui ou clique no microfone ao lado para falar...";
+                input.placeholder = "Escreva aqui ou fale no microfone...";
             };
 
             recognition.start();
@@ -663,6 +452,7 @@
             }
         }
 
+        // Simulação do Assistente Gemini
         function perguntarGemini() {
             const input = document.getElementById('perguntaGemini');
             const areaResposta = document.getElementById('respostaGemini');
@@ -676,40 +466,39 @@
             areaResposta.style.display = "block";
             areaResposta.innerHTML = "<em>Procurando resposta com carinho... ⏳</em>";
 
+            // Simula um pequeno tempo de carregamento
             setTimeout(() => {
                 let resposta = "";
 
                 if (texto.includes("nome") || texto.includes("quem é você")) {
-                    resposta = "🤖 Sou o Assistente Gemini, seu assistente virtual criado para ajudar você a navegar com facilidade pelo portal!";
+                    resposta = "Entendi sua dúvida sobre qual meu nome. Sou o Assistente Gemini, seu assistente virtual criado para ajudar você a navegar com facilidade pelo portal!";
                 } 
-                else if (texto.includes("saúde")  || texto.includes("hospital") || texto.includes("médico") || texto.includes("consulta") || texto.includes("remédio") || texto.includes("dor")) {
-                    resposta = "🏥 Para assuntos de saúde, clique no botão azul claro 'Acessar Saúde' nos cartões abaixo. Se for urgência, ligue direto para o SAMU no 192 clicando nos botões de emergência no fim da página.";
+                else if (texto.includes("saúde")  || texto.includes("hospital") || texto.includes("remédio") || texto.includes("dor") || texto.includes("médico")) {
+                    resposta = "Para assuntos de saúde e remédios, navegue clicando no botão laranja 'Hospitais e Saúde' logo abaixo na tela.";
                 } 
-                else if (texto.includes("iptu") || texto.includes("imposto") || texto.includes("casa") || texto.includes("pagar")) {
-                    resposta = "🏠 Para verificar o IPTU ou contas da casa, utilize o cartão laranja 'IPTU e Finanças' logo abaixo nesta página.";
+                else if (texto.includes("iptu") || texto.includes("imposto") || texto.includes("pagar")) {
+                    resposta = "Para verificar o IPTU ou finanças, clique no botão azul escuro 'IPTU e Finanças' na área de acesso rápido.";
                 } 
-                else if (texto.includes("notícia") || texto.includes("jornal") || texto.includes("acontecendo")) {
-                    resposta = "📰 As principais novidades da sua região estão disponíveis no cartão salmão 'Notícias da Cidade'.";
-                } 
-                else if (texto.includes("socorro") || texto.includes("emergência") || texto.includes("polícia") || texto.includes("bombeiro") || texto.includes("ajuda")) {
-                    resposta = "🚨 Para ajuda urgente, desça a página e clique nos botões de emergência para ligar para o SAMU, Bombeiros ou Polícia Militar.";
+                else if (texto.includes("notícia") || texto.includes("jornal")) {
+                    resposta = "Para ler as últimas novidades, clique no botão coral 'Notícias da Cidade'.";
                 } 
                 else {
-                    resposta = "💡 Para encontrar o que procura, navegue pelas opções rápidas nos cartões abaixo ou consulte os números de atendimento. Estou sempre por aqui para ajudar!";
+                    resposta = "Para encontrar o que procura, navegue pelas opções rápidas nos botões abaixo. Se precisar de algo específico, tente perguntar de outra forma!";
                 }
 
+                // Insere a resposta e o botão para ouvir
                 areaResposta.innerHTML = `
-                    <div>${resposta}</div>
-                    <button class="read-aloud-btn" id="btnOuvirRespostaGemini">
+                    <div style="margin-bottom: 15px;"><strong>Gemini responde:</strong> ${resposta}</div>
+                    <button class="speech-btn" id="btnOuvirResposta" style="font-size: 14px; padding: 6px 12px; background: #F59D71;">
                         🎧 Ouvir resposta em voz alta
                     </button>
                 `;
 
-                document.getElementById('btnOuvirRespostaGemini').onclick = function() {
+                document.getElementById('btnOuvirResposta').onclick = function() {
                     falarTexto(resposta);
                 };
 
-            }, 400);
+            }, 600);
         }
     </script>
 </body>
