@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portal Vida Ativa - Acesso Fácil</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -16,13 +16,13 @@
             --bg-page: #FAF5F0;
             --bg-card: #FFFFFF;
             
-            --text-title: #E17558; /* Laranja/Coral */
-            --text-darkblue: #2C5871; /* Azul escuro */
-            --text-muted: #8D99A3; /* Cinza */
+            --text-title: #E17558;
+            --text-darkblue: #2C5871;
+            --text-muted: #8D99A3;
             
-            --btn-teal: #2B6B7C; /* Azul/Verde */
-            --btn-orange: #F59D71; /* Laranja Saúde */
-            --btn-coral: #ED7458; /* Coral Notícias */
+            --btn-teal: #2B6B7C;
+            --btn-orange: #F59D71;
+            --btn-coral: #ED7458;
             
             --border-color: #F3EBE1;
             --font-size-base: 18px;
@@ -35,9 +35,13 @@
             font-family: 'Inter', sans-serif;
         }
 
+        /* Ocupa exatamente 100% do topo ao rodapé da tela do celular */
         html, body {
-            height: 100%;
-            background-color: var(--bg-page);
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background-color: var(--bg-card);
+            overflow-x: hidden;
         }
 
         body {
@@ -47,13 +51,13 @@
             justify-content: center;
         }
 
-        /* O container agora ocupa toda a altura da tela */
         .container {
             width: 100%;
-            max-width: 900px;
-            min-height: 100vh;
+            height: 100vh;
+            height: 100dvh;
+            max-width: 100%;
             background: var(--bg-card);
-            padding: 30px 24px;
+            padding: 20px 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -62,7 +66,9 @@
         .main-content {
             display: flex;
             flex-direction: column;
-            gap: 28px; /* Espaçamento ampliado entre os blocos */
+            justify-content: space-between;
+            flex: 1;
+            gap: 15px;
         }
 
         /* CABEÇALHO */
@@ -70,46 +76,46 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-bottom: 5px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .logo-icon {
-            width: 110px;
+            width: 100px;
             height: auto;
             object-fit: contain;
         }
 
         .logo-text-group h1 {
-            font-size: 24px;
+            font-size: 22px;
             color: var(--text-darkblue);
-            margin-bottom: 2px;
             font-weight: 700;
         }
 
         .logo-text-group p {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-muted);
             font-weight: 500;
         }
 
         .accessibility-controls {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .accessibility-controls button {
             background: #FDF4EB;
             color: var(--text-title);
             border: none;
-            padding: 12px 16px;
-            border-radius: 10px;
+            padding: 10px 14px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
         }
 
@@ -119,9 +125,10 @@
             align-items: center;
             background: #FFFFFF;
             border: 2px solid var(--border-color);
-            padding: 24px;
-            border-radius: 20px;
-            gap: 20px;
+            padding: 18px;
+            border-radius: 18px;
+            gap: 15px;
+            flex-shrink: 0;
         }
 
         .avatar-container {
@@ -131,73 +138,77 @@
             justify-content: center;
             background: #FDF8F3;
             border: 1px solid var(--border-color);
-            padding: 16px;
-            border-radius: 16px;
-            min-width: 90px;
+            padding: 12px;
+            border-radius: 14px;
+            min-width: 80px;
         }
 
-        .avatar-container .face { font-size: 42px; margin-bottom: 6px; }
-        .avatar-container .bubble { font-size: 20px; }
+        .avatar-container .face { font-size: 36px; }
+        .avatar-container .bubble { font-size: 18px; }
 
         .intro-text h3 {
             color: var(--text-title);
-            font-size: 20px;
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 6px;
         }
 
         .intro-text p {
             color: var(--text-muted);
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
 
         .speech-btn {
             background: var(--btn-teal);
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 10px;
+            padding: 10px 16px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         /* BARRA DE PESQUISA GEMINI */
+        .gemini-box {
+            flex-shrink: 0;
+        }
+
         .gemini-box h2 {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--text-title);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
 
         .search-wrapper {
             display: flex;
             border: 2px solid var(--btn-teal);
-            border-radius: 14px;
-            padding: 8px;
+            border-radius: 12px;
+            padding: 6px;
             background: white;
             align-items: center;
-            gap: 8px;
         }
 
         .search-wrapper input {
             flex: 1;
             border: none;
-            padding: 12px;
-            font-size: 18px;
+            padding: 10px;
+            font-size: 16px;
             outline: none;
             color: var(--text-darkblue);
+            width: 100%;
         }
 
         .mic-btn {
             background: transparent;
             border: none;
-            font-size: 26px;
-            padding: 0 10px;
+            font-size: 24px;
+            padding: 0 8px;
             cursor: pointer;
         }
 
@@ -205,9 +216,9 @@
             background: var(--btn-teal);
             color: white;
             border: none;
-            padding: 14px 24px;
-            font-size: 17px;
-            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 15px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
         }
@@ -215,24 +226,31 @@
         .gemini-response-area {
             background: #FDF8F3;
             border-left: 5px solid var(--text-title);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 15px;
-            font-size: 18px;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 16px;
             display: none;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* ACESSO RÁPIDO */
+        .quick-access-area {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
         .quick-access-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
         }
 
         .quick-access-title {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--text-title);
             font-weight: 600;
         }
@@ -241,9 +259,9 @@
             background: transparent;
             border: 1px solid var(--text-title);
             color: var(--text-title);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
             cursor: pointer;
             font-weight: 600;
         }
@@ -251,19 +269,23 @@
         .cards-grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
+            flex: 1;
+            justify-content: space-evenly;
         }
 
         .card {
-            border-radius: 16px;
-            padding: 22px 24px;
+            border-radius: 14px;
+            padding: 18px 20px;
             color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
             text-decoration: none;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 18px;
+            flex: 1;
+            min-height: 60px;
         }
 
         .card.saude { background-color: var(--btn-orange); }
@@ -271,24 +293,24 @@
         .card.noticias { background-color: var(--btn-coral); }
 
         .card-icon {
-            font-size: 28px;
+            font-size: 24px;
             background: rgba(255, 255, 255, 0.25);
-            width: 48px;
-            height: 48px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
+            border-radius: 10px;
         }
 
         /* RODAPÉ */
         footer {
             text-align: center;
             color: var(--text-title);
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 500;
-            padding-top: 30px;
-            padding-bottom: 10px;
+            padding-top: 10px;
+            flex-shrink: 0;
         }
 
         /* MODAL DE CONFIGURAÇÃO DE LINKS */
@@ -305,40 +327,44 @@
 
         .modal-content {
             background: white;
-            padding: 25px;
-            border-radius: 18px;
+            padding: 20px;
+            border-radius: 16px;
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .modal-content h3 { color: var(--text-darkblue); }
-        .modal-content label { font-size: 14px; font-weight: 600; color: var(--text-title); }
-        .modal-content input { padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; }
+        .modal-content h3 { color: var(--text-darkblue); font-size: 18px; }
+        .modal-content label { font-size: 13px; font-weight: 600; color: var(--text-title); }
+        .modal-content input { padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; }
 
         .modal-actions {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
-        .btn-cancelar { background: #ccc; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; }
-        .btn-salvar { background: var(--btn-teal); color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .btn-cancelar { background: #ccc; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+        .btn-salvar { background: var(--btn-teal); color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; }
 
+        /* Ajustes para telas maiores (Desktop/Tablet) */
         @media (min-width: 768px) {
-            .cards-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-            }
+            body { background-color: var(--bg-page); }
             .container {
+                max-width: 900px;
+                height: auto;
                 min-height: auto;
                 border-radius: 24px;
                 margin: 20px auto;
                 box-shadow: 0 8px 30px rgba(0,0,0,0.03);
                 border: 1px solid var(--border-color);
+            }
+            .cards-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -351,7 +377,7 @@
             <!-- Cabeçalho -->
             <header>
                 <div class="logo-area">
-                    <img src="logo-icone.png" alt="Logo Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:40px;\'>💙</span>');">
+                    <img src="logo-icone.png" alt="Logo Vida Ativa" class="logo-icon" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<span style=\'font-size:36px;\'>💙</span>');">
                     <div class="logo-text-group">
                         <h1>Portal Vida Ativa</h1>
                         <p>Bem-vindo, Sr. Roberto!</p>
@@ -389,7 +415,7 @@
             </div>
 
             <!-- Acesso Rápido -->
-            <div>
+            <div class="quick-access-area">
                 <div class="quick-access-header">
                     <div class="quick-access-title">Minha Cidade: Acesso Rápido</div>
                     <button class="edit-links-btn" onclick="abrirModalLinks()">⚙️ Configurar Links</button>
@@ -573,7 +599,6 @@
             fecharModalLinks();
         }
 
-        // Carrega os links assim que abre a página
         window.onload = carregarLinksSalvos;
     </script>
 </body>
